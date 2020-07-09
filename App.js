@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, StatusBar, Animated, InteractionManager } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, StatusBar, Animated} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -118,7 +118,7 @@ function MyTabBar({state, navigation}) {
                 color={isFocused ? '#fefdff' : '#b7b4b7'}
                 style={[styles.tabButtonIcon, {fontSize: interPolateIconSize}]}
               />
-              <AnimatedText style={{color: isFocused ? '#fefdff' : '#999', fontSize: interPolateTextSize}}>{route.name}</AnimatedText>
+              <AnimatedText style={{color: isFocused ? '#fefdff' : '#b7b4b7', fontSize: interPolateTextSize}}>{route.name}</AnimatedText>
             </TouchableOpacity>
           </View>
         )
