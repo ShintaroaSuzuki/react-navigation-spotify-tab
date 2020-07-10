@@ -38,13 +38,12 @@ function MyTabBar({state, navigation}) {
 
         const AnimatedIcon = Animated.createAnimatedComponent(Icon);
         const AnimatedText = Animated.createAnimatedComponent(Text);
-        const animatedIconValue = new Animated.Value(0);
-        const animatedTextValue = new Animated.Value(0);
-        const interPolateIconSize = animatedIconValue.interpolate({
+        const animatedValue = new Animated.Value(0);
+        const interPolateIconSize = animatedValue.interpolate({
           inputRange: [0, 60, 100],
           outputRange: [28, 26, 24],
         });
-        const interPolateTextSize = animatedTextValue.interpolate({
+        const interPolateTextSize = animatedValue.interpolate({
           inputRange: [0, 60, 100],
           outputRange: [12, 11, 10],
         });
@@ -58,12 +57,7 @@ function MyTabBar({state, navigation}) {
 
         const buttonSizeDown = () => {
           return new Promise((resolve) => {
-            Animated.timing(animatedIconValue, {
-              toValue: 100,
-              duration: 75,
-              useNativeDriver: false,
-            }).start();
-            Animated.timing(animatedTextValue, {
+            Animated.timing(animatedValue, {
               toValue: 100,
               duration: 75,
               useNativeDriver: false,
@@ -77,12 +71,7 @@ function MyTabBar({state, navigation}) {
         const buttonSizeUp = () => {
           return new Promise((resolve) => {
             buttonSizeDown().finally(() => {
-              Animated.timing(animatedIconValue, {
-                toValue: 0,
-                duration: 75,
-                useNativeDriver: false,
-              }).start();
-              Animated.timing(animatedTextValue, {
+              Animated.timing(animatedValue, {
                 toValue: 0,
                 duration: 75,
                 useNativeDriver: false,
